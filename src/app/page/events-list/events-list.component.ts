@@ -28,4 +28,8 @@ export class EventsListComponent implements OnInit {
     this.isEditorOpen = true;
   }
 
+  onDelete(event: Event): void {
+    this.eventService.remove(event);
+  }
+
 }
