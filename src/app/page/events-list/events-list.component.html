@@ -4,7 +4,11 @@
       <h3>All of the events should show below</h3>
     </div>
     <div class="col-2 text-right">
+      <button class="btn btn-success" (click)="openEditorComponent()">New event</button>
+    </div>
 
+    <div *ngIf="isEditorOpen">
+      <app-event-editor> [id]="0" </app-event-editor>
     </div>
   </div>
 

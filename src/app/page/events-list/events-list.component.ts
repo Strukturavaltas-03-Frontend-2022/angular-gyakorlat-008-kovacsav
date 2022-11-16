@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Event } from 'src/app/model/event';
@@ -13,11 +13,19 @@ export class EventsListComponent implements OnInit {
 
   eventList$: Observable<Event[]> = this.eventService.getAll();
 
+  @Output() clicked: EventEmitter<boolean> = new EventEmitter();
+
+  isEditorOpen: boolean = false;
+
   constructor(
     private eventService: EventService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {}
+
+  openEditorComponent():void {
+    this.isEditorOpen = true;
+  }
 
 }
