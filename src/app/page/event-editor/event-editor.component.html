@@ -27,7 +27,7 @@
         />
         <div [hidden]="eventForm.controls.date?.valid" class="error-message">
           Date have to follow the english format: 'dd/mm/yyyy' - day/month/year
-          - 2/2/4 characters.
+          - 1 vagy 2/2/4 characters.
         </div>
       </div>
       <div class="form-group">
@@ -37,7 +37,7 @@
           [(ngModel)]="event.time"
           type="text"
           class="form-control"
-          pattern="^([1-9]|0[1-9]|1[0-2])([AaPp][Mm])$"
+          pattern="^([1-9]|0[1-9]|1[0-2]) ([AaPp][Mm])$"
           required
         />
         <div [hidden]="eventForm.controls.time?.valid" class="error-message">
@@ -53,14 +53,21 @@
           type="text"
           class="form-control"
           required
-          pattern="^[A-Ű]{5,25}$"
+          pattern="^.{5,25}$"
         />
-        <div [hidden]="eventForm.controls.location?.valid" class="error-message">
+        <div
+          [hidden]="eventForm.controls.location?.valid"
+          class="error-message"
+        >
           The location of the event must have minimum 5, maximum 25 characters.
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary btn-block btn-lg">
+      <button
+        [disabled]="eventForm.invalid"
+        type="submit"
+        class="btn btn-primary btn-block btn-lg"
+      >
         <i class="fa fa-save"></i>
       </button>
     </form>
