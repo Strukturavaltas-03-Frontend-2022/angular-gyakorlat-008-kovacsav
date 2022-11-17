@@ -15,18 +15,12 @@ export class EventsListComponent implements OnInit {
 
   @Output() clicked: EventEmitter<boolean> = new EventEmitter();
 
-  isEditorOpen: boolean = false;
-
   constructor(
     private eventService: EventService,
     private router: Router,
   ) { }
 
   ngOnInit(): void {}
-
-  openEditorComponent():void {
-    this.isEditorOpen = true;
-  }
 
   onDelete(event: Event): void {
     this.eventService.remove(event);
