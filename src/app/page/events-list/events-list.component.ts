@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { Event } from 'src/app/model/event';
 import { EventService } from 'src/app/service/event.service';
 
+
 @Component({
   selector: 'app-events-list',
   templateUrl: './events-list.component.html',
@@ -17,14 +18,11 @@ export class EventsListComponent implements OnInit {
 
   isEditorOpen: boolean = false;
 
-  constructor(
-    private eventService: EventService,
-    private router: Router,
-  ) { }
+  constructor(private eventService: EventService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  openEditorComponent():void {
+  openEditorComponent(): void {
     this.isEditorOpen = true;
   }
 
