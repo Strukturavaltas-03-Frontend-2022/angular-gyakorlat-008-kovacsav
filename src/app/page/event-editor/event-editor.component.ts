@@ -41,13 +41,9 @@ export class EventEditorComponent implements OnInit {
 
   //@Input() id: number = -1;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private eventService: EventService,
-    private router: Router,
-  ) { }
+  constructor(private activatedRoute: ActivatedRoute, private eventService: EventService, private router: Router) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
 
   onUpdate(from: NgForm, event: Event){
