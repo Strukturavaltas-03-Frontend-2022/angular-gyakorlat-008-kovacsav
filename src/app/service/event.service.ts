@@ -16,11 +16,18 @@ export class EventService {
     private http: HttpClient) {
   }
 
+  newEvent: Observable<Event> = new Observable<Event>;
+
   getAll(): Observable<Event[]> {
     return this.http.get<Event[]>(this.eventsUrl);
   }
 
-  get(id: number): Observable<Event> {
+  get(id: number | string): Observable<Event> {
+    id = parseInt('' + id);
+    /*if (id===0){
+      console.log(id, this.newEvent);
+      return this.newEvent;
+    }*/
     return this.http.get<Event>(`${this.eventsUrl}/${id}`);
   }
 

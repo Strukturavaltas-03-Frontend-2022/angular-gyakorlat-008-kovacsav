@@ -1,5 +1,6 @@
 <div class="row">
   <div *ngIf="event$ | async as event" class="col-6 offset-3">
+    {{event}}
     <form #eventForm="ngForm" (ngSubmit)="onUpdate(eventForm, event)">
       <div class="form-group">
         <label for="">Name</label>
