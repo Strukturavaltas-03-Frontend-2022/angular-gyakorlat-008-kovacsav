@@ -25,10 +25,9 @@ export class EventEditorComponent implements OnInit {
   );
 */
 
-  event$: Observable<Event> = this.activatedRoute.params.pipe(
+  event$: Observable<any> = this.activatedRoute.params.pipe(
     switchMap( params => {
       if (params['id']==0) {
-        //console.log("0 a route", new Observable<Event>)
         return new Observable(subscriber => {
           subscriber.next(new Event);
         })
